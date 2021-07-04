@@ -29,25 +29,25 @@ filters = {}
 // 3. Use this function to update the filters. 
 function updateFilters() {
 
-    // 4a. Save the element that was changed as a variable.
-//var eleProperty = element.property("value")
-var changeElement = d3.select(this);
-    // 4b. Save the value that was changed as a variable.
-var changeValue = changeElement.property("value");
-//var elemId = element.attr("id")
+        // 4a. Save the element that was changed as a variable.
+    //var eleProperty = element.property("value")
+    var changeElement = d3.select(this);
+        // 4b. Save the value that was changed as a variable.
+    var changeValue = changeElement.property("value");
+    //var elemId = element.attr("id")
 
-    // 4c. Save the id of the filter that was changed as a variable.
-var changeID = changeElement.attr("id");
-  
-    // 5. If a filter value was entered then add that filterId and value
-    // to the filters list. Otherwise, clear that filter from the filters object.
- if (changeValue) {
-    filters[changeID] = changeValue
-
- }
- else {
-   delete filter[changeID]
- };
+        // 4c. Save the id of the filter that was changed as a variable.
+    var changeID = changeElement.attr("id");
+      
+        // 5. If a filter value was entered then add that filterId and value
+        // to the filters list. Otherwise, clear that filter from the filters object.
+    if (changeValue) {
+        filters[changeID] = changeValue;
+      
+    }
+    else {
+      delete filters[changeID];
+    }
   
     // 6. Call function to apply all filters and rebuild the table
     filterTable();
@@ -74,7 +74,7 @@ var changeID = changeElement.attr("id");
   }
   
   // 2. Attach an event to listen for changes to each filter
-  d3.selectAll('#input').on('change',updateFilters)
+  d3.selectAll('input').on('keyup',updateFilters)
   
   // Build the table when the page loads
   buildTable(tableData);
